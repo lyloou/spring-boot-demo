@@ -3,6 +3,33 @@
 <head>
     <title>Spring Boot and Thymeleaf example</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <!--引入JQuery-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        // JSON参数
+        var params = {
+            name: 'json_name',
+            count: 1,
+            note: '测试JSON'
+        };
+
+        $.ajax({
+            url: "./json/object",
+            type: "POST", // 设置为POST请求对应后端
+            // 将JSON参数转换为JSON字符串，然后设置为此次请求的请求体
+            data: JSON.stringify(params),
+            // 告知请求体媒体类型为JSON
+            contentType: "application/json",
+            success: function (result) {
+                // 展示结果
+                if (result.success) {
+                    alert(result.message);
+                } else {
+                    alert("请求失败了，看看哪里出错了");
+                }
+            }
+        });
+    </script>
 </head>
 <body>
 <h3>Spring Boot and Thymeleaf</h3>
