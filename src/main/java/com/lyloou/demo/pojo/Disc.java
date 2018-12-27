@@ -1,4 +1,4 @@
-package com.lyloou.demo.disc;
+package com.lyloou.demo.pojo;
 
 public class Disc {
     private String title;

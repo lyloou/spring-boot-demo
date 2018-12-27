@@ -1,4 +1,4 @@
-package com.lyloou.demo;
+package com.lyloou.demo.param;
 
 public class JsonParam {
     private String name;

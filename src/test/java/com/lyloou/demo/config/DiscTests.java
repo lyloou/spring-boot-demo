@@ -1,5 +1,6 @@
-package com.lyloou.demo.disc;
+package com.lyloou.demo.config;
 
+import com.lyloou.demo.pojo.Disc;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

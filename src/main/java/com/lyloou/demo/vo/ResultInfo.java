@@ -1,4 +1,4 @@
-package com.lyloou.demo;
+package com.lyloou.demo.vo;
 
 public class ResultInfo {
     private boolean success;

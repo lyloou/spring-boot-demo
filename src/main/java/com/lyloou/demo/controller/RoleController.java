@@ -1,4 +1,4 @@
-package com.lyloou.demo;
+package com.lyloou.demo.controller;
 
 import com.lyloou.demo.pojo.PageData;
 import com.lyloou.demo.pojo.Role;
