@@ -9,7 +9,7 @@ public class User implements Serializable {
     private static final long serialVersionUID = -2323297841948476564L;
     private Long id;
     private String userName;
-    private int sex; // 枚举，将来需要MyBatis的typeHandler进行转换
+    private SexEnum sex; // 枚举，将来需要MyBatis的typeHandler进行转换
     private String note;
 
     /**
@@ -35,11 +35,11 @@ public class User implements Serializable {
         this.userName = userName;
     }
 
-    public int getSex() {
+    public SexEnum getSex() {
         return sex;
     }
 
-    public void setSex(int sex) {
+    public void setSex(SexEnum sex) {
         this.sex = sex;
     }
 
