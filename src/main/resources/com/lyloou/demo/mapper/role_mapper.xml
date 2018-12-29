@@ -3,7 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lyloou.demo.dao.RoleDao">
 
-    <insert id="insertRole" parameterType="role" keyColumn="id" useGeneratedKeys="true">
+    <insert id="insertRole" parameterType="role" keyColumn="id" keyProperty="id" useGeneratedKeys="true">
         insert into t_role (role_name, note) values (#{roleName}, #{note})
     </insert>
 
