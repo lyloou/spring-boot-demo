@@ -1,7 +1,11 @@
 package com.lyloou.demo.controller;
 
+import com.lyloou.demo.pojo.Role;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.data.redis.core.RedisOperations;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.SessionCallback;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -67,4 +71,29 @@ public class RedisController {
         map.put(key, redisValue);
         return map;
     }
+
+    @GetMapping("/redis/role/{id}/{roleName}/{note}")
+    @ResponseBody
+    public Role testRole(@PathVariable("id") Long id,
+                         @PathVariable("roleName") String roleName,
+                         @PathVariable("note") String note) {
+        SessionCallback<Role> callback = new SessionCallback<Role>() {
+            @Override
+            public Role execute(RedisOperations operations) throws DataAccessException {
+                Role role = new Role();
+                role.setId(id);
+                role.setRoleName(roleName);
+                role.setNote(note);
+                String key = "role";
+
+                operations.opsForValue().set(key, role);
+
+                return (Role) operations.opsForValue().get(key);
+            }
+        };
+
+        return redisTemplate.execute(callback);
+    }
+
+
 }
