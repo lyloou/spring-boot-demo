@@ -16,10 +16,15 @@ public class DiscTests {
     @Autowired
     Disc disc;
 
+    @Autowired
+    Disc discEnv;
+
     @Test
     public void printDisc() {
         assert disc.getTitle().equals("title1");
         assert disc.getArtist().equals("artist1");
+        assert discEnv.getTitle().equals("title2");
+        assert discEnv.getArtist().equals("artist2");
     }
 
 }
